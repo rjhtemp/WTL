@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WonderTravel - Explore the World</title>
+    
+    <!-- Include Swiper CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #ffffff;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #FF6B6B;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #FF6B6B;
+        }
+
+        
+    </style>
+    <script>
+    function validateEmail(input) {
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const errorMessage = document.getElementById("email-error");
+
+    if (emailPattern.test(input.value)) {
+        errorMessage.style.display = "none";
+        input.style.borderColor = "green";
+    } else {
+        errorMessage.style.display = "inline";
+        input.style.borderColor = "red";
+    }
+}
+
+function validatePhone(input) {
+    const phonePattern = /^\d{10}$/;
+    const errorMessage = document.getElementById("phone-error");
+
+    if (phonePattern.test(input.value)) {
+        errorMessage.style.display = "none";
+        input.style.borderColor = "green";
+    } else {
+        errorMessage.style.display = "inline";
+        input.style.borderColor = "red";
+    }
+}
+
+function validate() {
+    if(document.getElementById("tripName").value== "")
+    {
+        alert("Please enter name");
+        return false;
+
+    }
+    else if(document.getElementById("tripEmail").value == "" ){
+        alert("Please enter email");
+        document.getElementById("email").focus();
+        return false;
+
+    }
+    else if(document.getElementById("tripPhone").value == "" ){
+        alert("Please enter phone number");
+        document.getElementById("tripPhone").focus();
+        return false;
+        
+    }
+    else if(document.getElementById("tripDate").value == "" ){
+        alert("Please enter date");
+        document.getElementById("tripDate").focus();
+        return false;
+    }
+    else if(document.getElementById("tripPackage").value == "" ){
+        alert("Please enter package");
+        document.getElementById("tripPackage").focus();
+        return false;
+    }
+    else if(document.getElementById("travelers").value == "" ){
+        alert("Please enter number of travelers");
+        document.getElementById("travelers").focus();
+        return false;
+    }
+    else{
+        alert("Form submitted successfully");
+    }
+  
+
+}
+   
+   </script>
+</head> 
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="logo">WonderTravel</a>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#packages">Packages</a>
+            <a href="#destinations">Destinations</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#contact">Contact</a>
+            <a href="#" class="login-btn">Login</a>
+        </div>
+    </nav>
+
+    <!-- Banner Slider -->
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="beach.png" alt="Beach Paradise" class="slide-bg">
+                <div class="slide-content">
+                    <h2 style="font-size: 3rem; margin-bottom: 1rem;">Discover Paradise</h2>
+                    <p style="font-size: 1.2rem;">Explore the world's most beautiful destinations</p>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="image.png" alt="Mountain Adventure" class="slide-bg">
+                <div class="slide-content">
+                    <h2 style="font-size: 3rem; margin-bottom: 1rem;">Adventure Awaits</h2>
+                    <p style="font-size: 1.2rem;">Create unforgettable memories</p>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+
+    <!-- Popular Packages -->
+    <section class="packages" id="packages">
+        <div class="section-header">
+            <h2>Popular Packages</h2>
+            <p>Discover our most loved travel experiences</p>
+        </div>
+        <div class="package-grid">
+            <div class="package-card">
+                <img src="Bali.png" alt="Bali Package" class="package-img">
+                <div class="package-content">
+                    <h3>Bali Paradise</h3>
+                    <p>7 Days / 6 Nights</p>
+                    <p class="package-price">From Rs.999</p>
+                    <button class="submit-btn">Book Now</button>
+                </div>
+            </div>
+            <div class="package-card">
+                <img src="Jaipur.jpeg" alt="Jaipur Package" class="package-img">
+                <div class="package-content">
+                    <h3>Jaipur Pink City</h3>
+                    <p>5 Days / 4 Nights</p>
+                    <p class="package-price">From Rs.1299</p>
+                    <button class="submit-btn">Book Now</button>
+                </div>
+            </div>
+            <div class="package-card">
+                <img src="maldives.jpeg" alt="Maldives Package" class="package-img">
+                <div class="package-content">
+                    <h3>Maldives Escape</h3>
+                    <p>6 Days / 5 Nights</p>
+                    <p class="package-price">From Rs.1499</p>
+                    <button class="submit-btn">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section" id="destinations">
+        <div class="section-header">
+            <h2>Explore Destinations</h2>
+            <p>Take a virtual tour of our top destinations</p>
+        </div>
+        <div class="video-grid">
+            <div class="video-container">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/6LWlSBcV2nE?si=fIFJNt4-1wn-S7Ha" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/zRBUxAHL2I8?si=L_ZF4vVJ34Ajn2Kh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="reviews" id="reviews">
+        <div class="section-header">
+            <h2>Traveler Reviews</h2>
+            <p>What our happy customers say about their experiences</p>
+        </div>
+        <div class="review-grid">
+            <div class="review-card">
+                <img src="p.jpeg" alt="Sarah Johnson" class="customer-img">
+                <div class="stars">★★★★★</div>
+                <div class="review-content">
+                    <h4>Amazing Experience!</h4>
+                    <p>"The trip to Bali was absolutely incredible. The service was outstanding and every detail was perfectly planned!"</p>
+                </div>
+                <p class="customer-name">Anupam Mittal</p>
+                <p class="customer-location">Baglore</p>
+            </div>
+
+            <div class="review-card">
+                <img src="p.jpeg" alt="Mike Thompson" class="customer-img">
+                <div class="stars">★★★★★</div>
+                <div class="review-content">
+                    <h4>Perfect Organization</h4>
+                    <p>"Everything was well-planned and the guides were extremely knowledgeable. The Rajgad Trek experience exceeded our expectations!"</p>
+                </div>
+                <p class="customer-name">Raj Birla</p>
+                <p class="customer-location">Mumbai</p>
+            </div>
+
+            <div class="review-card">
+                <img src="p.jpeg" alt="Emily Davis" class="customer-img">
+                <div class="stars">★★★★½</div>
+                <div class="review-content">
+                    <h4>Unforgettable Adventure</h4>
+                    <p>"Our Maldives trip was a dream come true. The resort was spectacular and the activities were perfectly organized."</p>
+                </div>
+                <p class="customer-name">Aman Gupta</p>
+                <p class="customer-location">Delhi</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="contact" id="contact">
+        <div class="section-header">
+            <h2>Contact Us</h2>
+            <p>Get in touch with our travel experts</p>
+        </div>
+        <div class="form-container">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label class="form-label" for="name">Full Name</label>
+                    <input type="text" id="name" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="email">Email Address</label>
+                    <input type="text" id="email" class="form-input" required oninput="validateEmail(this)">
+                    <small style="color: red; display: none;" id="email-error">Enter a valid email address</small>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="phone">Phone Number</label>
+                    <input type="tel" id="phone" class="form-input" pattern="^\d{10}$" required oninput="validatePhone(this)">
+                    <small style="color: red; display: none;" id="phone-error">Enter a valid 10-digit phone number</small>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="message">Your Message</label>
+                    <textarea id="message" class="form-input" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Trip Registration Modal -->
+    <div class="modal" id="tripModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 style="margin-bottom: 1.5rem;">Register Your Trip</h2>
+            <form id="tripForm">
+                <div class="form-group">
+                    <label class="form-label" for="tripName">Full Name</label>
+                    <input type="text" id="tripName" class="form-input" >
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="tripEmail">Email Address</label>
+                    <input type="email" id="email" class="form-input"  oninput="validateEmail(this)">
+                    <small style="color: red; display: none;" id="email-error">Enter a valid email address</small>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="tripPhone">Phone Number</label>
+                    <input type="tel" id="tripPhone" class="form-input" >
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="tripDate">Preferred Travel Date</label>
+                    <input type="date" id="tripDate" class="form-input" >
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="tripPackage">Select Package</label>
+                    <select id="tripPackage" class="form-input" >
+                        <option value="">Choose a package</option>
+                        <option value="bali">Bali Paradise</option>
+                        <option value="swiss">Swiss Alps Adventure</option>
+                        <option value="maldives">Maldives Escape</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="travelers">Number of Travelers</label>
+                    <input type="number" id="travelers" class="form-input" min="1" >
+                </div>
+                <button type="submit" class="submit-btn" onclick="validate()">Register Trip</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Include Swiper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize Swiper
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+
+        // Modal functionality
+        const modal = document.getElementById('tripModal');
+        const bookButtons = document.querySelectorAll('.submit-btn');
+        const closeBtn = document.querySelector('.close-btn');
+
+        bookButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                if (!e.target.closest('form')) {
+                    modal.style.display = 'flex';
+                }
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Form submissions
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! We will contact you soon.');
+            e.target.reset();
+        });
+
+        document.getElementById('tripForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for registering! We will confirm your trip details shortly.');
+            modal.style.display = 'none';
+            e.target.reset();
+        });
+    </script>
+</body>
+</html>
